@@ -8,5 +8,5 @@ echo $answer=$_GET["answer"];
 echo "<br>";
 echo $answer=$_POST["answer"];
 
-
+cc
 ?>

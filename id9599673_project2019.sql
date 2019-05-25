@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 17, 2019 at 06:45 AM
--- Server version: 10.3.14-MariaDB
--- PHP Version: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: May 25, 2019 at 06:52 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -16,11 +16,114 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `id9599673_project2019`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `answer`
+--
+
+CREATE TABLE `answer` (
+  `id` int(11) NOT NULL,
+  `userid` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `questionnumber` text NOT NULL,
+  `answer` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `answer`
+--
+
+INSERT INTO `answer` (`id`, `userid`, `questionnumber`, `answer`) VALUES
+(64, '2', '1', 'No'),
+(63, '1', '80', 'No'),
+(59, '1', '2', 'No'),
+(60, '1', '3', 'No'),
+(61, '1', '4', 'Yes'),
+(62, '1', '79', 'No'),
+(58, '1', '1', 'Yes'),
+(65, '2', '2', 'No'),
+(66, '2', '3', 'No'),
+(67, '1', '7', 'Yes'),
+(68, '4', '2', 'Yes'),
+(69, '1', '5', 'No'),
+(70, '1', '6', 'No'),
+(71, '1', '8', 'Yes'),
+(72, '1', '9', 'No'),
+(73, '1', '12', 'No'),
+(74, '1', '20', 'Yes'),
+(75, '1', '10', 'Yes'),
+(76, '1', '11', 'Yes'),
+(77, '1', '78', 'Yes'),
+(78, '1', '16', 'Yes'),
+(79, '1', '13', 'Yes'),
+(80, '1', '14', 'No'),
+(81, '1', '15', 'No'),
+(82, '1', '17', 'No'),
+(83, '1', '18', 'Yes'),
+(84, '1', '19', 'No'),
+(85, '1', '21', 'Yes'),
+(86, '1', '22', 'Yes'),
+(87, '1', '23', 'Yes'),
+(88, '1', '24', 'Yes'),
+(89, '1', '25', 'No'),
+(90, '1', '26', 'Yes'),
+(91, '1', '27', 'Yes'),
+(92, '1', '28', 'No'),
+(93, '1', '29', 'No'),
+(94, '1', '30', 'Yes'),
+(95, '1', '31', 'Yes'),
+(96, '1', '32', 'Yes'),
+(97, '1', '33', 'No'),
+(98, '1', '34', 'Yes'),
+(99, '1', '35', 'No'),
+(100, '1', '36', 'Yes'),
+(101, '1', '37', 'No'),
+(102, '1', '38', 'No'),
+(103, '1', '39', 'No'),
+(104, '1', '40', 'No'),
+(105, '1', '41', 'Yes'),
+(106, '1', '42', 'Yes'),
+(107, '1', '43', 'Yes'),
+(108, '1', '44', 'Yes'),
+(109, '1', '45', 'Yes'),
+(110, '1', '46', 'No'),
+(111, '1', '47', 'No'),
+(112, '1', '48', 'No'),
+(113, '1', '49', 'Yes'),
+(114, '1', '50', 'Yes'),
+(115, '1', '51', 'No'),
+(116, '1', '52', 'No'),
+(117, '1', '53', 'No'),
+(118, '1', '54', 'No'),
+(119, '1', '55', 'No'),
+(120, '1', '56', 'No'),
+(121, '1', '57', 'Yes'),
+(122, '1', '58', 'Yes'),
+(123, '1', '59', 'No'),
+(124, '1', '60', 'No'),
+(125, '1', '61', 'Yes'),
+(126, '1', '62', 'No'),
+(127, '1', '63', 'No'),
+(128, '1', '64', 'Yes'),
+(129, '1', '65', 'Yes'),
+(130, '1', '66', 'No'),
+(131, '1', '67', 'No'),
+(132, '1', '68', 'No'),
+(133, '1', '69', 'Yes'),
+(134, '1', '70', 'Yes'),
+(135, '1', '71', 'No'),
+(136, '1', '72', 'No'),
+(137, '1', '73', 'Yes'),
+(138, '1', '74', 'No'),
+(139, '1', '75', 'Yes'),
+(140, '1', '76', 'No'),
+(141, '1', '77', 'No');
 
 -- --------------------------------------------------------
 
@@ -123,15 +226,77 @@ INSERT INTO `question` (`id`, `question`, `answer1`, `answer2`, `answer3`, `answ
 (79, 'ฉันชอบคิดอะไรล่วงหน้าก่อนลงมือทำ', 'Yes', 'No', '', ''),
 (80, 'ฉันเก่งในเรื่องการปลูกต้นไม้และดูแลต้นไม้', 'Yes', 'No', '', '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `userid` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `username` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `surname` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `class` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `room` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `number` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `year` text NOT NULL,
+  `email` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `current` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `expect` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `remark` text CHARACTER SET utf8 COLLATE utf8_unicode_ci
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `userid`, `username`, `surname`, `class`, `room`, `number`, `year`, `email`, `password`, `current`, `expect`, `remark`) VALUES
+(14, '1', '1', '1', '6', '1', '1', '1', '1@mail', 'c4ca4238a0b923820dcc509a6f75849b', '1', '1', ''),
+(15, '3', '3', '3', '3', '3', '3', '3', '3@3', 'eccbc87e4b5ce2fe28308fd9f2a7baf3', '3', '3', ''),
+(13, '2', 'บัญชา', 'ดอกคำ', '6', '3', '2', '2561', 'buncha@mail.com', 'c4ca4238a0b923820dcc509a6f75849b', 'ห้อง Gifted', 'วิทย์', ''),
+(16, '4', '', '', '', '', '', '', '4@4', 'f7177163c833dff4b38fc8d2872f1ec6', '', '', ''),
+(17, '5', '5', '5', '5', '5', '5', '5', '5@5', 'b53b3a3d6ab90ce0268229151c9bde11', '5', '5', ''),
+(22, '6', 'ชื่อ6', 'สกุล6', '6', '6', '6', '6', '6@6', '1679091c5a880faf6fb5e6087eb1b2dc', '6', '7', NULL);
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `answer`
+--
+ALTER TABLE `answer`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `answer`
+--
+ALTER TABLE `answer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
