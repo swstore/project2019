@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 	ob_start();
+	//edit2
 ?>
 <!DOCTYPE html>
 <html>
