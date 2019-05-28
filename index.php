@@ -172,7 +172,8 @@
 					$username = $resultuser["username"];
 					?>
 					<div align="left">
-					<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="white"><?php echo "ผู้ใช้งาน = ".$username."  ล๊อกอินไปแล้ว = ".$logondisplay; ?></font></h5>
+					<!-- <h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="white"><?php echo "ผู้ใช้งาน = ".$username."  ล๊อกอินไปแล้ว = ".$logondisplay; ?></font></h5> -->
+					<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="white"><?php echo "ผู้ใช้งาน = ".$username; ?></font></h5>
 					</div>
 					<?php }ELSE{ $logonsuccess="no"; ?>
 					<div align="left">

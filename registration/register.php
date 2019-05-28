@@ -37,6 +37,7 @@ $_SESSION['prev']="index.php";
 		<div class="input-group">
 			<label>ชั้น </label>
 			<select style="font-size:16px; id="class" name="class" >
+				<option <?php if ($class == '') {echo "selected";}?> value=""></option>
 				<option <?php if ($class == '1') {echo "selected";}?> value="1">ม. 1</option>
 				<option <?php if ($class == '2') {echo "selected";}?> value="2">ม. 2</option>
 				<option <?php if ($class == '3') {echo "selected";}?> value="3">ม. 3</option>
@@ -48,6 +49,7 @@ $_SESSION['prev']="index.php";
 		<div class="input-group">
 			<label>ห้อง </label>
 			<select style="font-size:16px; id="room" name="room" >
+				<option <?php if ($room == '') {echo "selected";}?> value=""></option>
 				<option <?php if ($room == '1') {echo "selected";}?> value="1">1</option>
 				<option <?php if ($room == '2') {echo "selected";}?> value="2">2</option>
 				<option <?php if ($room == '3') {echo "selected";}?> value="3">3</option>
@@ -79,6 +81,7 @@ $_SESSION['prev']="index.php";
 		<div class="input-group">
 			<label>แผนการเรียนปัจจุบัน</label>
 			<select style="font-size:16px; id="current" name="current" >
+				<option <?php if ($resultuser["current"] == '') {echo "selected";}?> value=""></option>
 				<option <?php if ($resultuser["current"] == 'ห้องปกติ') {echo "selected";}?> value="ห้องปกติ">ห้องปกติ</option>
 				<option <?php if ($resultuser["current"] == 'ห้อง Intensive') {echo "selected";}?> value="ห้อง Intensive">ห้อง Intensive</option>
 				<option <?php if ($resultuser["current"] == 'ห้อง Gifted') {echo "selected";}?> value="ห้อง Gifted">ห้อง Gifted</option>

@@ -15,6 +15,7 @@ ini_set('display_errors', 1);
 <head>
 	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 	<title>Registration system PHP and MySQL</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
