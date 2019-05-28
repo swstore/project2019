@@ -15,6 +15,7 @@ ini_set('display_errors', 1);
 <head>
 	<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 	<title>Registration system PHP and MySQL</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -57,6 +58,7 @@ ini_set('display_errors', 1);
 		<div class="input-group">
 			<label>ชั้น </label>
 			<select style="font-size:16px; id="class" name="class" >
+				<option <?php if ($class == '') {echo "selected";}?> value=""></option>
 				<option <?php if ($class == '1') {echo "selected";}?> value="1">ม. 1</option>
 				<option <?php if ($class == '2') {echo "selected";}?> value="2">ม. 2</option>
 				<option <?php if ($class == '3') {echo "selected";}?> value="3">ม. 3</option>
@@ -68,6 +70,7 @@ ini_set('display_errors', 1);
 		<div class="input-group">
 			<label>ห้อง </label>
 			<select style="font-size:16px; id="room" name="room" >
+				<option <?php if ($room == '') {echo "selected";}?> value=""></option>
 				<option <?php if ($room == '1') {echo "selected";}?> value="1">1</option>
 				<option <?php if ($room == '2') {echo "selected";}?> value="2">2</option>
 				<option <?php if ($room == '3') {echo "selected";}?> value="3">3</option>
@@ -99,6 +102,7 @@ ini_set('display_errors', 1);
 		<div class="input-group">
 			<label>แผนการเรียนปัจจุบัน</label>
 			<select style="font-size:16px; id="current" name="current" >
+				<option <?php if ($current[""] == '') {echo "selected";}?> value=""></option>
 				<option <?php if ($current == 'ห้องปกติ') {echo "selected";}?> value="ห้องปกติ">ห้องปกติ</option>
 				<option <?php if ($current == 'ห้อง Intensive') {echo "selected";}?> value="ห้อง Intensive">ห้อง Intensive</option>
 				<option <?php if ($current == 'ห้อง Gifted') {echo "selected";}?> value="ห้อง Gifted">ห้อง Gifted</option>
