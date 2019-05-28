@@ -3,7 +3,11 @@
 <html>
 <head>
 	<title>Registration system PHP and MySQL</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
 </head>
 <body>
 
@@ -27,10 +31,11 @@
 			<button type="submit" class="btn" name="login_user">Login</button>
 		</div>
 		<p>
-			<a href="register.php">สมัครสมาชิกใหม่</a> หรือ  <a href="../index.php">กลับหน้าหลัก</a>
+			<br><a href="register.php">ลงทะเบียน</a> หรือ  <a href="../index.php">กลับหน้าหลัก</a>
 		</p>
-	</form>
+		
 
+	</form>
 
 </body>
 </html>
