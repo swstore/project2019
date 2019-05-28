@@ -9,7 +9,6 @@
 //========================================================================
 
 // TTF Font families
-define("FF_Sarabun",10);
 define("FF_COURIER",10);
 define("FF_VERDANA",11);
 define("FF_TIMES",12);
@@ -146,7 +145,7 @@ define('ASSUME_EUCJP_ENCODING',false);
 
 
 // Default font family
-define('FF_DEFAULT', FF_Sarabun);
+define('FF_DEFAULT', FF_DV_SANSSERIF);
 
 
 
@@ -280,8 +279,6 @@ class TTF {
 
 	    // File names for available fonts
 	    $this->font_files=array(
-		FF_Sarabun => array(FS_NORMAL =>'THSarabun.ttf',
-	    	FS_BOLD  =>'THSarabunNew Bold.ttf' ),
 	    FF_COURIER => array(FS_NORMAL =>'cour.ttf',
 	    	FS_BOLD  =>'courbd.ttf',
 	    	FS_ITALIC =>'couri.ttf',

@@ -260,8 +260,8 @@ for ($q=1;$q<=80;$q++){
 //-------------------------------------------------------
 // Graph
 //-------------------------------------------------------
-require_once ('jpgraph/jpgraph.php');
-require_once ('jpgraph/jpgraph_radar.php');
+require_once ('./jpgraph/jpgraph.php');
+require_once ('./jpgraph/jpgraph_radar.php');
  
 // Create the basic rtadar graph
 //$graph = new RadarGraph(300,200);
@@ -275,7 +275,8 @@ $graph->SetShadow();
 //$graph->SetCenter(0.4,0.55);
  
 // Setup the axis formatting     
-$graph->axis->SetFont(FF_Sarabun,FS_NORMAL);
+//$graph->axis->SetFont(FF_Sarabun,FS_NORMAL);
+$graph->axis->SetFont(FF_FONT1,FS_BOLD);
 $graph->axis->SetWeight(2);
  
 // Setup the grid lines
@@ -287,8 +288,8 @@ $graph->HideTickMarks();
 // Setup graph titles
 //$graph->title->Set("ผลทักษะ");
 $graph->title->Set("Skill");
-//$graph->title->SetFont(FF_FONT1,FS_BOLD);
-$graph->title->SetFont(FF_Sarabun,FS_NORMAL);
+$graph->title->SetFont(FF_FONT1,FS_BOLD);
+//$graph->title->SetFont(FF_Sarabun,FS_NORMAL);
 //$graph->SetTitles(array("ด้านภาษา","คณิตศาสตร์","ด้านมิติสัมพันธ์","ด้านร่างกายและการเคลื่อนไหว","ด้านดนตรี","ด้านความสัมพันธ์กับผู้อื่น","ด้านการเข้าใจตนเอง","ด้านการเข้าใจธรรมชาติ"));
 $graph->SetTitles(array("Language","Match","Relation","Body","Music","Relationship","confidence","The nature"));
 // Create the first radar plot        
@@ -315,7 +316,6 @@ $fileName ="./graphoutput/".$userid.".png";
 if (file_exists($fileName)) {unlink($fileName);}
 $graph->Stroke($fileName);
 //<img src="showgraph.php?a=1&b=2">
-
 ?>
 
 <center><img src="<?php echo $fileName; ?>"></center>
