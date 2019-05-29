@@ -150,7 +150,7 @@
 					Main Section
 				=====================================================-->
 				<section id='intro' class='section section-main active' >
-					
+
 					<?php
 					$logonsuccess="yes";
 					$userid = $_SESSION['userid'];
@@ -185,6 +185,7 @@
 						<div class='v-align' >
 							<div class='inner' >
 								<div class='intro-text' >
+									
 									
 									<h1>ทดสอบ</h1>
 									
