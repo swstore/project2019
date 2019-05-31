@@ -130,7 +130,7 @@ body.border-dark .menu-btn > .lines > span{
 	font-size:18px;
 	font-weight:700;
 	text-decoration:none;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 	padding:10px 0;
 	margin:2px 0;
@@ -216,7 +216,7 @@ body.border-dark .main-content > .page-border{
 	font-size:28px;
 	font-weight:200;
 	margin:0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 }
 .section-block{
@@ -242,7 +242,14 @@ body.border-dark .main-content:after{
 =======================================================*/
 .section-main{
 	background-size:cover;
-	background-image:url(../img/bg.jpg);
+	background-image:url(../img/bg1.jpg);
+	background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+-o-background-size: 100% 100%, auto;
+-moz-background-size: 100% 100%, auto;
+-webkit-background-size: 100% 100%, auto;
+background-size: 100% 100%, auto;
 }
 .section-main:before{
 	content: ' ';
@@ -251,9 +258,7 @@ body.border-dark .main-content:after{
 	left:0;
 	height:100%;
 	width:100%;
-	background:#303F9F;
-	opacity:.8;
-	z-index:-1;
+
 }
 .intro-text{
 	padding:20px;
@@ -262,15 +267,14 @@ body.border-dark .main-content:after{
 .intro-text > h1{
 	margin:0;
 	color:#FFF;
-	text-transform:uppercase;
-	font-weight:900;
+	/*text-transform:uppercase;*/
+	font-weight:500;
 	letter-spacing:8px;
-	font-size:78px;
+	font-size:50px;
 }
 .intro-text > p{
 	font-size:18px;
 	color:#FFF;
-	color:rgba(255,255,255,.8);
 	margin-top:15px;
 	margin-bottom:0;
 	font-weight:300;
@@ -290,7 +294,7 @@ a.btn-custom{
 .btn-custom{
 	color:#FFF;
 	letter-spacing:4px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	text-decoration:none;
 	text-align:center;
 	font-size:11px;
@@ -556,7 +560,7 @@ body.section-switching.up .animation-block{
 .info-list > li > strong{
 	letter-spacing:4px;
 	color:#202020;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 }
 .info-list > li > span{
 	color:rgba(0,0,0,.4);
@@ -620,7 +624,7 @@ body.section-switching.up .animation-block{
 .service > .content > h4{
 	color:#202020;
 	letter-spacing:2px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	margin:25px 0;
 }
 .service > .content > p{
@@ -643,7 +647,7 @@ body.section-switching.up .animation-block{
 	margin-bottom:5px;
 	font-weight:500;
 	letter-spacing:2px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	font-size:14px;
 }
 .skill > .bar{
@@ -738,7 +742,7 @@ body.section-switching.up .animation-block{
 .p-table > .header > h4{
 	margin:0;
 	font-size:32px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	margin-bottom:45px;
 }
@@ -762,7 +766,7 @@ body.section-switching.up .animation-block{
 }
 .p-table > .header > .price > .period{
 	font-size:14px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	color:rgba(0,0,0,.4);
 }
@@ -863,7 +867,7 @@ body.section-switching.up .animation-block{
 }
 .testimonial > .author > h4{
 	margin:0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	margin-bottom:5px;
 }
@@ -927,7 +931,7 @@ body.section-switching.up .animation-block{
 	font-weight:500;
 	color:rgba(0,0,0,.4);
 	text-decoration:none;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 	padding:15px 0;
 	margin:-15px 0;
@@ -1007,7 +1011,7 @@ body.section-switching.up .animation-block{
 	left:0;
 	right:0;
 	padding:20px 0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	-webkit-transition:all .3s cubic-bezier(.785,.135,.15,.86);
 	-moz-transition:all .3s cubic-bezier(.785,.135,.15,.86);
@@ -1131,7 +1135,7 @@ body.section-switching.up .animation-block{
 	padding:20px;
 }
 .popup-box > .content > h4{
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	font-weight:bold;
 	font-size:20px;
@@ -1546,7 +1550,7 @@ body.border-dark .menu-btn > .lines > span{
 	font-size:18px;
 	font-weight:700;
 	text-decoration:none;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 	padding:10px 0;
 	margin:2px 0;
@@ -1632,7 +1636,7 @@ body.border-dark .main-content > .page-border{
 	font-size:28px;
 	font-weight:200;
 	margin:0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 }
 .section-block{
@@ -1658,7 +1662,7 @@ body.border-dark .main-content:after{
 =======================================================*/
 .section-main{
 	background-size:cover;
-	background-image:url(../img/bg.jpg);
+	background-image:url(../img/bg2.jpg);
 }
 .section-main:before{
 	content: ' ';
@@ -1678,7 +1682,7 @@ body.border-dark .main-content:after{
 .intro-text > h1{
 	margin:0;
 	color:#FFF;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	font-weight:900;
 	letter-spacing:8px;
 	font-size:78px;
@@ -1706,7 +1710,7 @@ a.btn-custom{
 .btn-custom{
 	color:#FFF;
 	letter-spacing:4px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	text-decoration:none;
 	text-align:center;
 	font-size:11px;
@@ -1972,7 +1976,7 @@ body.section-switching.up .animation-block{
 .info-list > li > strong{
 	letter-spacing:4px;
 	color:#202020;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 }
 .info-list > li > span{
 	color:rgba(0,0,0,.4);
@@ -2036,7 +2040,7 @@ body.section-switching.up .animation-block{
 .service > .content > h4{
 	color:#202020;
 	letter-spacing:2px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	margin:25px 0;
 }
 .service > .content > p{
@@ -2059,7 +2063,7 @@ body.section-switching.up .animation-block{
 	margin-bottom:5px;
 	font-weight:500;
 	letter-spacing:2px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	font-size:14px;
 }
 .skill > .bar{
@@ -2154,7 +2158,7 @@ body.section-switching.up .animation-block{
 .p-table > .header > h4{
 	margin:0;
 	font-size:32px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	margin-bottom:45px;
 }
@@ -2178,7 +2182,7 @@ body.section-switching.up .animation-block{
 }
 .p-table > .header > .price > .period{
 	font-size:14px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	color:rgba(0,0,0,.4);
 }
@@ -2279,7 +2283,7 @@ body.section-switching.up .animation-block{
 }
 .testimonial > .author > h4{
 	margin:0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	margin-bottom:5px;
 }
@@ -2343,7 +2347,7 @@ body.section-switching.up .animation-block{
 	font-weight:500;
 	color:rgba(0,0,0,.4);
 	text-decoration:none;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 	padding:15px 0;
 	margin:-15px 0;
@@ -2423,7 +2427,7 @@ body.section-switching.up .animation-block{
 	left:0;
 	right:0;
 	padding:20px 0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	-webkit-transition:all .3s cubic-bezier(.785,.135,.15,.86);
 	-moz-transition:all .3s cubic-bezier(.785,.135,.15,.86);
@@ -2547,7 +2551,7 @@ body.section-switching.up .animation-block{
 	padding:20px;
 }
 .popup-box > .content > h4{
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	font-weight:bold;
 	font-size:20px;
@@ -2963,7 +2967,7 @@ body.border-dark .menu-btn > .lines > span{
 	font-size:18px;
 	font-weight:700;
 	text-decoration:none;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 	padding:10px 0;
 	margin:2px 0;
@@ -3049,7 +3053,7 @@ body.border-dark .main-content > .page-border{
 	font-size:28px;
 	font-weight:200;
 	margin:0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 }
 .section-block{
@@ -3075,7 +3079,7 @@ body.border-dark .main-content:after{
 =======================================================*/
 .section-main{
 	background-size:cover;
-	background-image:url(../img/bg.jpg);
+	background-image:url(../img/bg3.jpg);
 }
 .section-main:before{
 	content: ' ';
@@ -3095,7 +3099,7 @@ body.border-dark .main-content:after{
 .intro-text > h1{
 	margin:0;
 	color:#FFF;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	font-weight:900;
 	letter-spacing:8px;
 	font-size:78px;
@@ -3123,7 +3127,7 @@ a.btn-custom{
 .btn-custom{
 	color:#FFF;
 	letter-spacing:4px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	text-decoration:none;
 	text-align:center;
 	font-size:11px;
@@ -3389,7 +3393,7 @@ body.section-switching.up .animation-block{
 .info-list > li > strong{
 	letter-spacing:4px;
 	color:#202020;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 }
 .info-list > li > span{
 	color:rgba(0,0,0,.4);
@@ -3453,7 +3457,7 @@ body.section-switching.up .animation-block{
 .service > .content > h4{
 	color:#202020;
 	letter-spacing:2px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	margin:25px 0;
 }
 .service > .content > p{
@@ -3476,7 +3480,7 @@ body.section-switching.up .animation-block{
 	margin-bottom:5px;
 	font-weight:500;
 	letter-spacing:2px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	font-size:14px;
 }
 .skill > .bar{
@@ -3571,7 +3575,7 @@ body.section-switching.up .animation-block{
 .p-table > .header > h4{
 	margin:0;
 	font-size:32px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	margin-bottom:45px;
 }
@@ -3595,7 +3599,7 @@ body.section-switching.up .animation-block{
 }
 .p-table > .header > .price > .period{
 	font-size:14px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	color:rgba(0,0,0,.4);
 }
@@ -3696,7 +3700,7 @@ body.section-switching.up .animation-block{
 }
 .testimonial > .author > h4{
 	margin:0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	margin-bottom:5px;
 }
@@ -3760,7 +3764,7 @@ body.section-switching.up .animation-block{
 	font-weight:500;
 	color:rgba(0,0,0,.4);
 	text-decoration:none;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:4px;
 	padding:15px 0;
 	margin:-15px 0;
@@ -3840,7 +3844,7 @@ body.section-switching.up .animation-block{
 	left:0;
 	right:0;
 	padding:20px 0;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	-webkit-transition:all .3s cubic-bezier(.785,.135,.15,.86);
 	-moz-transition:all .3s cubic-bezier(.785,.135,.15,.86);
@@ -3964,7 +3968,7 @@ body.section-switching.up .animation-block{
 	padding:20px;
 }
 .popup-box > .content > h4{
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	letter-spacing:2px;
 	font-weight:bold;
 	font-size:20px;
