@@ -1,4 +1,4 @@
-<?php
+<?php 
 	session_start();
 	ob_start();
 	//edit2
@@ -182,7 +182,7 @@ if ($answer != '') {
 									$prev = "question.php?"."&question=".$questionprev;
 									?>
 									<?php //if ($oldanswer == 'Yes') {echo "checkedtest";}?>
-									<form  method="post" name="form1">
+									<form action=<?php echo $next;?> method="post" name="form1">
 									<input <?php if ($oldanswer == 'Yes') {echo "checked";}?> type="radio" name="answer" value=<?php echo $result["answer1"];?> id="answer_1">
 									<?php echo $result["answer1"];?>
 
@@ -190,12 +190,9 @@ if ($answer != '') {
 									<?php echo $result["answer2"];?>
 									</font>
 									<br><br>
-	<!--								<input name="button" type="button" id="button" onClick="MM_goToURL('parent','<?php echo $prev;?>');return document.MM_returnValue" value="ย้อนหลัง">
+									<input name="button" type="button" id="button" onClick="MM_goToURL('parent','<?php echo $prev;?>');return document.MM_returnValue" value="ย้อนหลัง">
 									<input name="btnSubmit" type="submit" value="ถัดไป">
--->
-									<input type="button" value="ย้อนหลัง" onClick="this.form.action='<?php echo $prev;?>'; submit()">
-									<input type="button" value="ถัดไป" onClick="this.form.action='<?php echo $next;?>'; submit()">
-									
+
 									</h3>
 									<div class='intro-btns' >
 									<br>
