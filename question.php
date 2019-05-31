@@ -51,7 +51,35 @@ ini_set('display_errors', 1);
 $userid = $_SESSION['userid'];
 //if ($userid == '') {header("location: pleaselogin.php");}
 $question_num=$_GET["question"];
-if($question_num==""){$question_num="1";}
+if($question_num=="0"){
+	$alldone = "1";
+	$qa=array();
+	$sql = "SELECT * FROM answer WHERE userid LIKE '%$userid%'";
+	$query = mysqli_query($conn,$sql);
+	while($result=mysqli_fetch_array($query,MYSQLI_ASSOC)){
+		//print_r($result);
+		$qa[$result[questionnumber]]=$result[answer];
+	}
+	for($num=1;$num<=80;$num++){
+		if($qa[$num]=="") {
+			$alldone="0";
+			break;
+		}
+	}
+	//echo "<br>Alldone=".$alldone;
+	if($alldone=="1"){
+		{header("location: result.php");}
+	}ELSE{
+		$question_num="$num";
+		$url="question.php?"."&question=".$num;
+		header("location: $url");
+	}
+}
+
+//echo "Alldone=".$alldone;
+//////////////////////
+//if($question_num==""){$question_num="1";}
+
 //$answer=$_GET["answer"];
 $answer=$_POST["answer"];
 $sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questionnumber = $question_num)";
@@ -70,7 +98,18 @@ $oldanswer = $result["answer"];
 //echo "<hr>";
 //echo "New Answer = ".$answer;
 //echo "<br>";
-$oldquestion_num = $question_num - 1;
+
+switch ($_GET["action"]) {
+case "next":
+    $oldquestion_num = $question_num - 1;
+    break;
+case "prev":
+    $oldquestion_num = $question_num + 1;
+    break;
+case "home":
+    $oldquestion_num = $question_num;
+    break;
+}
 //echo "Question to Update = ".$oldquestion_num;
 
 //echo "<hr>";
@@ -109,6 +148,14 @@ if ($answer != '') {
 //			echo "Record update successfully";
 		}
 	}
+}
+
+if($_GET["action"]=="home"){
+	if($_SESSION['prev'] == "question.php"){
+		$_SESSION['prev']="index.php";
+	}
+	$p1=$_SESSION['prev'];
+	header("Location: $p1");
 }
 
 ?>
@@ -178,11 +225,12 @@ if ($answer != '') {
 									<?php
 									$questionnext=$question_num+1; if ($questionnext == '82') $questionnext=81;
 									$questionprev=$question_num-1; if ($questionprev == '0') $questionprev=1;
-									$next = "question.php?"."&question=".$questionnext;
-									$prev = "question.php?"."&question=".$questionprev;
+									$next = "question.php?"."&question=".$questionnext."&action=next";
+									$prev = "question.php?"."&question=".$questionprev."&action=prev";
+									$home = "question.php?"."&question=".$question_num."&action=home";
 									?>
 									<?php //if ($oldanswer == 'Yes') {echo "checkedtest";}?>
-									<form  method="post" name="form1">
+									<form method="post" name="form1">
 									<input <?php if ($oldanswer == 'Yes') {echo "checked";}?> type="radio" name="answer" value=<?php echo $result["answer1"];?> id="answer_1">
 									<?php echo $result["answer1"];?>
 
@@ -196,19 +244,20 @@ if ($answer != '') {
 									<input type="button" value="ย้อนหลัง" onClick="this.form.action='<?php echo $prev;?>'; submit()">
 									<input type="button" value="ถัดไป" onClick="this.form.action='<?php echo $next;?>'; submit()">
 									
-									</h3>
-									<div class='intro-btns' >
+									<br>
+									<br>
 									<br>
 									<?php 	if($_SESSION['prev'] == "question.php"){
 												$_SESSION['prev']="index.php";
 											}
 											//echo $_SESSION['prev'];
 									?>
-										<a href='<?php echo $_SESSION['prev'];?>' class='btn-custom section-toggle' data-section='questionnair' >
+									<input type="button" value="กลับ" onClick="this.form.action='<?php echo $home;?>'; submit()">
+<!--										<a href='<?php echo $_SESSION['prev'];?>' class='btn-custom section-toggle' data-section='questionnair' >
 											<h5>กลับ</h5>
-										</a>
+-->										</a>
 
-									</div>
+									</h3>
 
 								</div>
 							</div>

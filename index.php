@@ -206,7 +206,7 @@
 											<h5>ดูผลการทดสอบ</h5>
 										</a>
 										
-										<a href='question.php?question=1' class='btn-custom section-toggle' data-section='questionnair' >
+										<a href='question.php?question=0' class='btn-custom section-toggle' data-section='questionnair' >
 											<h5>เริ่มทำแบบทดสอบ</h5>
 										</a>
 										<?php
