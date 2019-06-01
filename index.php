@@ -185,12 +185,23 @@
 						<div class='v-align' >
 							<div class='inner' >
 								<div class='intro-text' >
+<?php
+							$file="./admin/title.txt";
+							$fp = fopen($file, "r");
+//							if (!$fp) {echo "File Title error";}
+//							while (!feof($fp)) {
+//        				$file = fgets($fp, 4096);
+//        				echo "Title=".$file."<br>";
+//    					}
+							$title = fgets($fp, 4096);
+							$content = fgets($fp, 4096);
+							$content = str_replace (array("\r\n", "\n", "\r"), '', $content)
+?>									
 									
-									
-									<h1>ทดสอบ</h1>
+									<h1><?php echo $title; ?></h1>
 									
 									<p>
-										เพื่อทดสอบความถนัดทางการเรียนต่อในสาขาที่ถนัด
+										<?php echo $content; ?>
 									</p>
 									
 									<div class='intro-btns' >

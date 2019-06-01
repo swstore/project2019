@@ -45,7 +45,7 @@ ini_set('display_errors', 1);
 		<h2>Change Password</h2>
 	</div>
 	
-	<form method="post" action="Change_Password.php">
+	<form method="post" action="change_password.php">
 
 		<?php include('errors.php'); ?>
 
