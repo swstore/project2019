@@ -1,0 +1,7 @@
+#question group
+questiongroup=1
+
+#number of answer
+numberofanswer=2
+
+
