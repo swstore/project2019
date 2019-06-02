@@ -25,6 +25,8 @@
 		<link rel='stylesheet' type='text/css' href='css/magnific-popup.css' >
 		<link rel='stylesheet' type='text/css' href='css/style.css' >
 
+		<link rel='stylesheet' type='text/css' href='css/radiotogglestyle.css' >
+
 		<script type="text/javascript">
 		function MM_goToURL() { //v3.0
 		  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
@@ -58,7 +60,7 @@ $question_num=$_GET["question"];
 if($question_num=="0"){
 	$alldone = "1";
 	$qa=array();
-	$sql = "SELECT * FROM answer WHERE userid LIKE '%$userid%' AND questiongroup LIKE '%$questiongroup%'";
+	$sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questiongroup = $questiongroup)";
 	$query = mysqli_query($conn,$sql);
 	while($result=mysqli_fetch_array($query,MYSQLI_ASSOC)){
 		//print_r($result);
@@ -218,10 +220,11 @@ if($_GET["action"]=="home"){
 									<h2><font color="white"><?php if($question_num != ($_SESSION['numberofquestion']+1)) echo "คำถามข้อที่  ".$question_num; ELSE echo "คำถามหมดแล้ว";?> </h2>
 									<h3>
 									<?php
-										$sql = "SELECT * FROM question WHERE id = $question_num";
+										$sql = "SELECT * FROM question WHERE number = $question_num AND questiongroup = $questiongroup";
 										$query = mysqli_query($conn,$sql);
 										$result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 										echo $result["question"];
+										//echo "<br>old answer = ".$oldanswer;
 									?>
 									</h3>
 									<h3>
@@ -235,19 +238,42 @@ if($_GET["action"]=="home"){
 									?>
 									<?php //if ($oldanswer == 'Yes') {echo "checkedtest";}?>
 									<form method="post" name="form1">
-									<input <?php if ($oldanswer == 'Yes') {echo "checked";}?> type="radio" name="answer" value=<?php echo $result["answer1"];?> id="answer_1">
+<!--									<?php
+									for($count="1"; $count<=$numberofanswer; $count++){
+										$answer="answer".$count;
+									?>
+										<input <?php if ($oldanswer == $result[$answer]) {echo "checked";}?> type="radio" name="answer" value=<?php echo $result[$answer];?> id=<?php echo $result[$answer];?>>
+										<?php echo $result[$answer];?>
+									<?php
+									}
+									?>
+-->
+aaa1234
+										<div class="toggle"><font color = black>
+										<input <?php if ($oldanswer == "ไม่ใช่เลย") {echo "checked";}?> type="radio" name="answer" value="ไม่ใช่เลย" id="sizeWeight" />
+										<label for="sizeWeight">ไม่ใช่เลย</label>
+										<input <?php if ($oldanswer == "ไม่แน่ใจ") {echo "checked";}?> type="radio" name="answer" value="ไม่แน่ใจ" id="sizeDimensions" />
+										<label for="sizeDimensions">ไม่แน่ใจ</label>
+										<input <?php if ($oldanswer == "ค่อนข้างใช่") {echo "checked";}?> type="radio" name="answer" value="ค่อนข้างใช่" id="sizeDimensions2" />
+										<label for="sizeDimensions2">ค่อนข้างใช่</label>
+										<input <?php if ($oldanswer == "ใช่ที่สุด") {echo "checked";}?> type="radio" name="answer" value="ใช่ที่สุด" id="sizeDimensions3" />
+										<label for="sizeDimensions3">ใช่ที่สุด</label>
+										</font>
+										</div>
+
+<!--									<input <?php if ($oldanswer == 'Yes') {echo "checked";}?> type="radio" name="answer" value=<?php echo $result["answer1"];?> id="answer_1">
 									<?php echo $result["answer1"];?>
 
 									<input <?php if ($oldanswer == 'No') {echo "checked";}?> type="radio" name="answer" value=<?php echo $result["answer2"];?> id="answer_2">
 									<?php echo $result["answer2"];?>
-									</font>
+-->									</font>
 									<br><br>
 	<!--								<input name="button" type="button" id="button" onClick="MM_goToURL('parent','<?php echo $prev;?>');return document.MM_returnValue" value="ย้อนหลัง">
 									<input name="btnSubmit" type="submit" value="ถัดไป">
 -->
 									<input type="button" value="ย้อนหลัง" onClick="this.form.action='<?php echo $prev;?>'; submit()">
 									<input type="button" value="ถัดไป" onClick="this.form.action='<?php echo $next;?>'; submit()">
-									
+
 									<br>
 									<br>
 									<br>
