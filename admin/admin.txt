@@ -1,7 +1,10 @@
 #question group
-questiongroup=1
+questiongroup=2
+
+#numberofquestion
+numberofquestion=60
 
 #number of answer
-numberofanswer=2
+numberofanswer=4
 
 

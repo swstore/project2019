@@ -50,17 +50,21 @@ ini_set('display_errors', 1);
 //echo "UserID=".$userid = $_SESSION['userid'];
 $userid = $_SESSION['userid'];
 //if ($userid == '') {header("location: pleaselogin.php");}
+$questiongroup=$_SESSION['questiongroup'];
+$numberofquestion=$_SESSION['numberofquestion'];
+$numberofanswer=$_SESSION['numberofanswer'];
+
 $question_num=$_GET["question"];
 if($question_num=="0"){
 	$alldone = "1";
 	$qa=array();
-	$sql = "SELECT * FROM answer WHERE userid LIKE '%$userid%'";
+	$sql = "SELECT * FROM answer WHERE userid LIKE '%$userid%' AND questiongroup LIKE '%$questiongroup%'";
 	$query = mysqli_query($conn,$sql);
 	while($result=mysqli_fetch_array($query,MYSQLI_ASSOC)){
 		//print_r($result);
 		$qa[$result[questionnumber]]=$result[answer];
 	}
-	for($num=1;$num<=80;$num++){
+	for($num="1"; $num<=$numberofquestion; $num++){
 		if($qa[$num]=="") {
 			$alldone="0";
 			break;
@@ -82,7 +86,7 @@ if($question_num=="0"){
 
 //$answer=$_GET["answer"];
 $answer=$_POST["answer"];
-$sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questionnumber = $question_num)";
+$sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questiongroup = $questiongroup) AND (questionnumber = $question_num)";
 $query = mysqli_query($conn,$sql);
 if ($answer == '') {
 //	echo "answer = NULL<br>";
@@ -115,7 +119,7 @@ case "home":
 //echo "<hr>";
 //ถ้ามีคำตอบ ของข้อที่ทำมาแล้วให้ update หรือ add
 if ($answer != '') {
- 	$sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questionnumber = $oldquestion_num)";
+ 	$sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questiongroup = $questiongroup) AND (questionnumber = $oldquestion_num)";
 	$query = mysqli_query($conn,$sql);
 	$result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 	$updateanswer = $result["answer"];
@@ -125,8 +129,8 @@ if ($answer != '') {
 	if ($updateanswer == '') {
 //		echo "<br>updateanswer = NULL = insert<br>";
 		//Insert database
-		$sql = "INSERT INTO answer (userid, questionnumber, answer)
-		VALUES ('".$userid."','".$oldquestion_num."','".$answer."')";
+		$sql = "INSERT INTO answer (userid, questiongroup, questionnumber, answer)
+		VALUES ('".$userid."','".$questiongroup."','".$oldquestion_num."','".$answer."')";
 
 		$query = mysqli_query($conn,$sql);
 
@@ -140,7 +144,7 @@ if ($answer != '') {
 
 		$sql = "UPDATE answer SET
 			answer = '".$answer."'
-			WHERE (userid = '".$userid."') AND (questionnumber = '".$oldquestion_num."')";
+			WHERE (userid = '".$userid."') AND (questiongroup = $questiongroup) AND (questionnumber = '".$oldquestion_num."')";
 
 		$query = mysqli_query($conn,$sql);
 
@@ -211,7 +215,7 @@ if($_GET["action"]=="home"){
 						<div class='v-align' >
 							<div class='inner' >
 								<div class='intro-text' >
-									<h2><font color="white"><?php if($question_num != '81') echo "คำถามข้อที่  ".$question_num; ELSE echo "คำถามหมดแล้ว";?> </h2>
+									<h2><font color="white"><?php if($question_num != ($_SESSION['numberofquestion']+1)) echo "คำถามข้อที่  ".$question_num; ELSE echo "คำถามหมดแล้ว";?> </h2>
 									<h3>
 									<?php
 										$sql = "SELECT * FROM question WHERE id = $question_num";

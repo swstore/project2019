@@ -148,6 +148,7 @@
 					$logonsuccess="yes";
 					$userid = $_SESSION['userid'];
 					$logontime=$_SESSION['logontime'];
+					$questiongroup=$_SESSION['questiongroup'];
 					$timecheck=(int)time()-(int)$logontime;   //18000=5 Hours
 					
 					if (($userid != '') && ($timecheck <= 18000)) {
@@ -165,7 +166,7 @@
 						$logondisplay=secToHR((int)time()-(int)$logontime);
 					?>
 						<div align="left">
-						<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="white"><?php echo "ผู้ใช้งาน = ".$username; ?></font></h5>
+						<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="white"><?php echo "ผู้ใช้งาน = ".$username." group = ".$questiongroup; ?></font></h5>
 						</div>
 					<?php }ELSE{ $logonsuccess="no"; ?>
 					<div align="left">
@@ -186,7 +187,7 @@ if (($userid != '') && ($logonsuccess =="yes")){
 						//print_r($result);
 						$qa[$result[questionnumber]]=$result[answer];
 					}
-	for($num=1;$num<=80;$num++){
+	for($num=1;$num<=$_SESSION['numberofquestion'];$num++){
 		if($qa[$num]=="") {$alldone="0";}
 	}
 //	echo "Alldone=".$alldone;
@@ -198,7 +199,7 @@ if (($userid != '') && ($logonsuccess =="yes")){
 <?php
 	$j=0;
 	$row=array();
-	for($i=1;$i<=80;$i++){
+	for($i=1;$i<=$_SESSION['numberofquestion'];$i++){
 		//ข้อที่ยังไม่ได้ทำ
 		if($qa[$i]==""){
 			$k=$i; if($k < 10){$k = "0".$k;}
@@ -252,7 +253,7 @@ $sql = "SELECT * FROM skill";
 						//echo "<br>";
 						$skill[$result[questionnumber]]=$result[skill];
 					}
-for ($q=1;$q<=80;$q++){
+for ($q=1;$q<=$_SESSION['numberofquestion'];$q++){
 	if($qa[$q] == "Yes"){
 		$skillresult[$skill[$q]]++;
 	}

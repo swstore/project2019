@@ -99,6 +99,26 @@
 				$_SESSION['logontime'] = $t;
 				$_SESSION['userid'] = $userid;
 				$_SESSION['success'] = "success";
+//get number of question
+				$file="../admin/admin.txt";
+					$fp = fopen($file, "r+");
+					if (!$fp) {echo "File Title error";}
+					while (!feof($fp)) {
+        				$file = fgets($fp);
+						if (substr($file, 0, 13)=="questiongroup"){
+							$num=explode("=",$file);
+							$_SESSION['questiongroup'] = $num[1];
+						}
+						if (substr($file, 0, 16)=="numberofquestion"){
+							$num=explode("=",$file);
+							$_SESSION['numberofquestion'] = $num[1]; 
+						}
+						if (substr($file, 0, 14)=="numberofanswer"){
+							$num=explode("=",$file);
+							$_SESSION['numberofanswer'] = $num[1]; 
+						}
+        			}
+
 //				header('location: index.php');
 //				header('location: begin.php');
 //				header("location: ../index.php");
