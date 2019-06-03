@@ -154,7 +154,7 @@
 					$timecheck=(int)time()-(int)$logontime;   //18000=5 Hours
 
 					if (($userid != '') && ($timecheck <= 18000)) {
-						$sql = "SELECT * FROM users WHERE (userid = $userid) AND (questiongroup = $questiongroup)";
+						$sql = "SELECT * FROM users WHERE (userid = $userid)";
 						$query = mysqli_query($conn,$sql);
 						$resultuser=mysqli_fetch_array($query,MYSQLI_ASSOC);
 						$username = $resultuser["username"];
@@ -166,15 +166,15 @@
 							return "$hours:$minutes:$seconds";
 						}
 						$logondisplay=secToHR((int)time()-(int)$logontime);
-					?>
-						<div align="left">
-						<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="white"><?php echo "ผู้ใช้งาน = ".$username." group = ".$questiongroup; ?></font></h5>
+						?>
+<!--						<div align="left">
+						<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="blue"><?php echo "ผู้ใช้งาน:".$username." คำถามกลุ่ม:".$questiongroup; ?></font></h5>
 						</div>
-					<?php }ELSE{ $logonsuccess="no"; ?>
-					<div align="left">
-					<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="white"><?php echo "ยังไม่ได้ล๊อกอิน"; ?></font></h5>
-					</div>
-					<?php } ?>
+-->						<?php }ELSE{ $logonsuccess="no"; ?>
+<!--						<div align="left">
+						<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="blue"><?php echo "ยังไม่ได้ล๊อกอิน"; ?></font></h5>
+						</div>
+-->						<?php } ?>
 
 <?php
 
@@ -196,7 +196,7 @@ if (($userid != '') && ($logonsuccess =="yes")){
 	if($alldone==0){
 ?>
 								<div class='intro-text' >
-									<font color="white"><h2>กรุณาทำให้ครบทุกข้อ</h2></font>
+									<font color="#330066"><h1>กรุณาทำให้ครบทุกข้อ</h1></font>
 								</div>
 <?php
 	$j=0;
@@ -213,7 +213,7 @@ if (($userid != '') && ($logonsuccess =="yes")){
 			$row[$j].='<span style="color: black;" />'.$k." ".'</span>';
 			//echo $qa[$i]." ";
 		}
-		if($i % 16 == 0){
+		if($i % 15 == 0){
 	//		echo "<br>";
 			$j++;
 		}
@@ -225,9 +225,10 @@ if (($userid != '') && ($logonsuccess =="yes")){
 	echo "<p align=center>$row[3]</p>";
 	echo "<p align=center>$row[4]</p>";
 	?>
-	<center><a href='result.php' class='btn-custom section-toggle' data-section='questionnair' >
-		<h5>ดูผลการทดสอบ</h5>
-	</a></center>
+	<br><br>
+	<center><h3>
+	<input name="button" type="button" id="button" onClick="MM_goToURL('parent','index.php');return document.MM_returnValue" value="กลับหน้าหลัก">
+	</h3></center>
 <?php }ELSE{
 
 ?>
@@ -238,8 +239,9 @@ if (($userid != '') && ($logonsuccess =="yes")){
 									<center><font color="white"><h2>สรุปผลการทดสอบ</h2></font></center>
 								</div>
 -->
-		<center><font color="white"><h2>สรุปผลการทดสอบ</h2></font></center>
+		<center><font color="blue"><h2>สรุปผลการทดสอบ</h2></font></center>
 <?php
+if($questiongroup==1){
 $sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questiongroup = $questiongroup)";
 					$query = mysqli_query($conn,$sql);
 					while($result=mysqli_fetch_array($query,MYSQLI_ASSOC)){
@@ -294,7 +296,7 @@ $graph->title->Set("Skill");
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 //$graph->title->SetFont(FF_Sarabun,FS_NORMAL);
 //$graph->SetTitles(array("ด้านภาษา","คณิตศาสตร์","ด้านมิติสัมพันธ์","ด้านร่างกายและการเคลื่อนไหว","ด้านดนตรี","ด้านความสัมพันธ์กับผู้อื่น","ด้านการเข้าใจตนเอง","ด้านการเข้าใจธรรมชาติ"));
-$graph->SetTitles(array("Language","Match","Relation","Body","Music","Relationship","confidence","The nature"));
+$graph->SetTitles(array("Language","Math","Relation","Body","Music","Relationship","confidence","The nature"));
 // Create the first radar plot
 $plot = new RadarPlot(array(30,80,60,40,71,81,47));
 $plot->SetLegend("Goal");
@@ -321,21 +323,145 @@ $graph->Stroke($fileName);
 //<img src="showgraph.php?a=1&b=2">
 ?>
 
-<center><img src="<?php echo $fileName; ?>"></center>
+<!--<center><img src="<?php echo $fileName; ?>"></center>-->
 
+		<!--=====================================================
+			Group2
+		==============================-->
+<?php }ELSE {
+?>
+<?php
+$sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questiongroup = $questiongroup)";
+					$query = mysqli_query($conn,$sql);
+					while($result=mysqli_fetch_array($query,MYSQLI_ASSOC)){
+						//print_r($result);
+						//echo "<br>";
+						$qa[$result[questionnumber]]=$result[answer];
+					}
+
+$sql = "SELECT * FROM skill";
+					$query = mysqli_query($conn,$sql);
+					while($result=mysqli_fetch_array($query,MYSQLI_ASSOC)){
+						//print_r($skill);
+						//echo "<br>";
+						$skill[$result[questionnumber]]=$result[skill];
+					}
+					
+$group=array();
+$questioncount=1;
+//มี 5 สายอาชีพ
+for($groupcount=1; $groupcount<=5; $groupcount++){
+	//สายอาชีพละ12 ข้อ
+	for ($q=1; $q<=12; $q++){
+		switch ($qa[$questioncount]) {
+			case "ใช่ที่สุด":
+				$group[$groupcount] += 3;
+				break;
+			case "ค่อนข้างใช่":
+				$group[$groupcount] += 2;
+				break;
+			case "ไม่แน่ใจ":
+				$group[$groupcount] += 1;
+				break;
+		}
+		//print_r($group[$groupcount]);
+		//echo "<br>";
+		$questioncount++;
+	}
+}
+/*
+print_r($group);
+echo "<br>group1=".$group[1];
+echo "<br>group2=".$group[2];
+echo "<br>group3=".$group[3]=12;
+echo "<br>group4=".$group[4]=10;
+echo "<br>group5=".$group[5]=8;
+echo "<br>";
+*/
+//-------------------------------------------------------
+// Graph
+//-------------------------------------------------------
+require_once ('./jpgraph/jpgraph.php');
+require_once ('./jpgraph/jpgraph_radar.php');
+
+// Create the basic rtadar graph
+//$graph = new RadarGraph(300,200);
+$graph = new RadarGraph(450,300);
+
+// Set background color and shadow
+$graph->SetColor("white");
+$graph->SetShadow();
+
+// Position the graph
+//$graph->SetCenter(0.4,0.55);
+
+// Setup the axis formatting
+//$graph->axis->SetFont(FF_Sarabun,FS_NORMAL);
+$graph->axis->SetFont(FF_FONT1,FS_BOLD);
+$graph->axis->SetWeight(2);
+
+// Setup the grid lines
+$graph->grid->SetLineStyle("longdashed");
+$graph->grid->SetColor("navy");
+$graph->grid->Show();
+$graph->HideTickMarks();
+
+// Setup graph titles
+//$graph->title->Set("ผลทักษะ");
+$graph->title->Set("Skill");
+$graph->title->SetFont(FF_FONT1,FS_BOLD);
+//$graph->title->SetFont(FF_Sarabun,FS_NORMAL);
+//$graph->SetTitles(array("คณิต-วิทย์","คณิต-อังกฤษ","อังกฤษ-ภาษาที่2","อังกฤษทั่วไป","สายอาชีพ"));
+$graph->SetTitles(array("Sci-Math","Math-Art","2nd Language","Language-Art","Vocational"));
+// Create the first radar plot
+$plot = new RadarPlot(array(30,80,60,40,71,81,47));
+$plot->SetLegend("Goal");
+$plot->SetColor("red","lightred");
+$plot->SetFill(false);
+$plot->SetLineWeight(2);
+
+// Create the second radar plot
+$plot2 = new RadarPlot(array($group[1],$group[2],$group[3],$group[4],$group[5]));
+//$plot2->SetLegend("ทักษะ");
+//$plot2->SetLegend("Skill");
+$plot2->SetColor("blue","lightred");
+
+// Add the plots to the graph
+$graph->Add($plot2);
+//$graph->Add($plot);
+
+// And output the graph
+
+$fileName ="./graphoutput/".$userid.".png";
+if (file_exists($fileName)) {unlink($fileName);}
+$graph->Stroke($fileName);
+
+}
+?>
+<br><br>
+<center><img src="<?php echo $fileName; ?>"></center>
+<br><br>
+<center><h3>
+<input name="button" type="button" id="button" onClick="MM_goToURL('parent','index.php');return document.MM_returnValue" value="กลับหน้าหลัก">
+</h3></center>
 		<!--=====================================================
 			จบสรุปผลการทดสอบ
 		=====================================================-->
-<?php }
+<?php
+}
 }ELSE{
 
 		//$userid = $_SESSION['userid'];
 		//if ($userid == ''){
-			$_SESSION['prev']="result.php";?>
-			<center><br><br><br><br><font color="white">กรุณาล๊อกอินก่อนใช้งาน</font><br><br>
+			$_SESSION['prev']="result.php";
+?>
+			<center><h2><br><br><br><br><font color="blue">กรุณาล๊อกอินก่อนใช้งาน</font><br><br></h2>
 <!--			<input type="button" onClick="MM_goToURL('parent','index.php');return document.MM_returnValue" value="Home">
--->			<input type="button" onClick="MM_goToURL('parent','registration/login.php');return document.MM_returnValue" value="Login">
-			</h2></center>
+			<input type="button" onClick="MM_goToURL('parent','registration/login.php');return document.MM_returnValue" value="Login">
+-->			<h3>
+			<input name="button" type="button" id="button" onClick="MM_goToURL('parent','registration/login.php');return document.MM_returnValue" value="ล๊อกอิน">
+			</h3>
+			</center>
 <?php	 }
 
 ?>

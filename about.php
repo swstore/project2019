@@ -177,12 +177,12 @@
 <!--					<div align="left">
 					<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="blue"><?php echo "ผู้ใช้งาน:".$username." คำถามกลุ่ม:".$questiongroup; ?></font></h5>
 					</div>
--->					<?php }ELSE{ $logonsuccess="no"; ?>
-<!--					<div align="left">
+					<?php }ELSE{ $logonsuccess="no"; ?>
+					<div align="left">
 					<h5><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="blue"><?php echo "ยังไม่ได้ล๊อกอิน"; ?></font></h5>
 					</div>
--->					<?php } ?>
-					
+					<?php } ?>
+-->					
 					<div class='container-fluid' >
 						<div class='v-align' >
 							<div class='inner' >
@@ -198,12 +198,10 @@
 							}
 							$intro = fgets($fp,);
 							$title = fgets($fp);
-							$content = fgets($fp);
-							
-							$about = "";
+							$content = "";
 							$file = fgets($fp);
 							while (substr($file, 0, 1) != "#") {
-								$about = $about.$file."<br>";
+								$content = $content.$file."<br>";
 								$file = fgets($fp);
 							}
 							//$content = str_replace (array("\r\n", "\n", "\r"), '', $content)
@@ -213,7 +211,7 @@
 									<h10><?php echo $title; ?></h10>
 									<div class="c"></div>
 									<h11><?php echo $content; ?><h11>
-									<br><br>
+									
 									<div class='intro-btns' >
 <!--
 										<a href='result.php' class='btn-custom section-toggle' data-section='register' >
@@ -267,7 +265,7 @@
 
 							<div class='section-header' >
 								<h2>
-									I'm a <strong class='color' >Student</strong>
+									I'm a <strong class='color' >Programmer</strong>
 								</h2>
 							</div>
 
@@ -279,27 +277,27 @@
 
 										<li>
 											<strong>Name:</strong>
-											<span>Bunyawee Dokkum</span>
+											<span>John Doe</span>
 										</li>
 
 										<li>
 											<strong>Job:</strong>
-											<span>Student</span>
+											<span>Freelancer</span>
 										</li>
 
 										<li>
 											<strong>Age:</strong>
-											<span>18 Years</span>
+											<span>26 Years</span>
 										</li>
 
 										<li>
 											<strong>Residence:</strong>
-											<span>Thailand</span>
+											<span>United States</span>
 										</li>
 
 										<li>
 											<strong>Hometown:</strong>
-											<span>Nonthaburi</span>
+											<span>Dokri</span>
 										</li>
 
 
@@ -311,12 +309,17 @@
 								<div class='col-md-8' >
 
 									<div class='about-text' >
-										<p> <h11><?php echo $about; ?><h11>
-											</p>
+										<p>
+											Qui ne indoctum electram vituperatoribus. Eirmod tamquam efficiendi mei cu, eum idque voluptatum ad, quo id tollit regione prompta. Cu probo iusto assentior eos, usu summo perpetua ne. Te suas phaedrum ullamcorper has. Ea mei ponderum rationibus dissentias. Inani phaedrum suavitate eu qui, vide aperiri facilis est eu. Te appetere cotidieque pro, duo eu assum facete instructior, no autem aeterno reprimique nec. Pri cu delectus adolescens, eruditi placerat cu sed, zril nonumes forensibus in eam. Eam ne dolore diceret pericula, in vis numquam pertinax. Vel ne dolorum eloquentiam, et vel senserit incorrupte neglegentur, pro cu audiam ocurreret reprimique.
+										</p>
+
+										<p>
+											Qui ne indoctum electram vituperatoribus. Eirmod tamquam efficiendi mei cu, eum idque voluptatum ad, quo id tollit regione prompta. Cu probo iusto assentior. Qui ne indoctum electram vituperatoribus. Eirmod tamquam efficiendi mei cu, eum idque voluptatum ad.
+										</p>
 
 									</div>
 
-<!--									<div class='about-btns' >
+									<div class='about-btns' >
 
 										<a href='#' class='btn-custom btn-color' >
 											Download Resume
@@ -325,7 +328,7 @@
 										<a href='#' class='btn-custom btn-color' >
 											Hire Me
 										</a>
--->
+
 									</div>
 
 								</div>
@@ -1278,10 +1281,8 @@
 											<i class='ion-ios-location-outline' ></i>
 
 											<p>
-												16, 9 ซอย วิภาวดีรังสิต 28<br>
-												แขวง จตุจักร เขตจตุจักร<br>
-												กรุงเทพมหานคร 10900
-												
+												1254 Patterson Street<br>
+												Houston, TX 77025
 											</p>
 
 										</div>
@@ -1292,8 +1293,8 @@
 											<i class='ion-ios-telephone-outline' ></i>
 
 											<p>
-												<br>(+66) 2512-6000<br>
-												
+												(+123) 713-295-4383<br>
+												(+123) 913-295-2583
 											</p>
 
 										</div>
@@ -1304,9 +1305,8 @@
 											<i class='ion-android-globe' ></i>
 
 											<p>
-												<br><a href="http://www.horwang.ac.th">http://www.horwang.ac.th</a><br>
-												
-												
+												www.google.com<br>
+												www.example.com
 											</p>
 
 										</div>

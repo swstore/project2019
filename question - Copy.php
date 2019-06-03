@@ -48,10 +48,12 @@
 <?php
 error_reporting(0);
 ini_set('display_errors', 1);
+//get old data
+//$userid=$_GET["userid"];
+//echo "UserID=".$userid = $_SESSION['userid'];
 $userid = $_SESSION['userid'];
+//if ($userid == '') {header("location: pleaselogin.php");}
 $questiongroup=$_SESSION['questiongroup'];
-$questiongroup = str_replace(' ', '-', $questiongroup); // Replaces all spaces with hyphens.
-$questiongroup = preg_replace('/[^A-Za-z0-9\-]/', '', $questiongroup); // Removes special chars
 $numberofquestion=$_SESSION['numberofquestion'];
 $numberofanswer=$_SESSION['numberofanswer'];
 
@@ -82,7 +84,10 @@ if($question_num=="0"){
 }
 
 //echo "Alldone=".$alldone;
+//////////////////////
+//if($question_num==""){$question_num="1";}
 
+//$answer=$_GET["answer"];
 $answer=$_POST["answer"];
 $sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questiongroup = $questiongroup) AND (questionnumber = $question_num)";
 $query = mysqli_query($conn,$sql);
@@ -92,9 +97,14 @@ if ($answer == '') {
 }
 $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 //print_r($result);
+//echo $result["answer"];
 $oldanswer = $result["answer"];
 //echo "<br>Old Answer = ".$oldanswer;
+//if ($oldanswer == 'yes') {echo "yes";}
+
+//echo "<hr>";
 //echo "New Answer = ".$answer;
+//echo "<br>";
 
 switch ($_GET["action"]) {
 case "next":
@@ -116,9 +126,11 @@ if ($answer != '') {
 	$query = mysqli_query($conn,$sql);
 	$result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 	$updateanswer = $result["answer"];
+//echo "<br>";
 //print_r($result);
 	//if old answer = null = ไม่มีค่าเดิมให้ เพิ่ม
 	if ($updateanswer == '') {
+//		echo "<br>updateanswer = NULL = insert<br>";
 		//Insert database
 		$sql = "INSERT INTO answer (userid, questiongroup, questionnumber, answer)
 		VALUES ('".$userid."','".$questiongroup."','".$oldquestion_num."','".$answer."')";
@@ -198,7 +210,7 @@ if($_GET["action"]=="home"){
 					$resultuser=mysqli_fetch_array($query,MYSQLI_ASSOC);
 					$username = $resultuser["username"];
 					?>
-<!--					<h5><br><font color="white"><?php echo "ผู้ใช้งาน : ".$username;?></font>&nbsp&nbsp&nbsp</h5>
+<!--					<h5><br><font color="white"><?php echo "ผู้ใช้งาน = ".$username;?></font>&nbsp&nbsp&nbsp</h5>
 -->					</div>
 
 					<div class='container-fluid' >
@@ -206,8 +218,8 @@ if($_GET["action"]=="home"){
 						<div class='v-align' >
 							<div class='inner' >
 								<div class='intro-text' >
-									<h9><font color=#330066><?php if($question_num != ($_SESSION['numberofquestion']+1)) echo "คำถามข้อที่  ".$question_num; ELSE echo "คำถามหมดแล้ว";?> </font></h9>
-									<h2><font color=#333399>
+									<h2><font color="yellow"><?php if($question_num != ($_SESSION['numberofquestion']+1)) echo "คำถามข้อที่  ".$question_num; ELSE echo "คำถามหมดแล้ว";?> </font></h2>
+									<h2><font color="white">
 									<?php
 										$sql = "SELECT * FROM question WHERE number = $question_num AND questiongroup = $questiongroup";
 										$query = mysqli_query($conn,$sql);
@@ -216,7 +228,6 @@ if($_GET["action"]=="home"){
 										//echo "<br>old answer = ".$oldanswer;
 									?>
 									</font></h2>
-									<br>
 									<h3>
 									
 									<?php
@@ -299,7 +310,7 @@ if($_GET["action"]=="home"){
 									<input <?php if ($oldanswer == 'No') {echo "checked";}?> type="radio" name="answer" value=<?php echo $result["answer2"];?> id="answer_2">
 									<?php echo $result["answer2"];?>
 -->									</font>
-									<br>
+									<br><br>
 	<!--								<input name="button" type="button" id="button" onClick="MM_goToURL('parent','<?php echo $prev;?>');return document.MM_returnValue" value="ย้อนหลัง">
 									<input name="btnSubmit" type="submit" value="ถัดไป">
 -->

@@ -1,0 +1,30 @@
+body {
+				font-family: sans-serif;
+			}
+			/*
+			ให้ element ที่มี class img-checker ถูกซ่อนไว้
+			*/
+			.img-checker {
+				display: none;
+			}
+			/*
+			ให้ <img> ที่ตามหลัง element ที่มี class img-checker แสดงผลแบบจาง
+			และใช้ cursor รูปมือเมื่อผู้ใช้เอาเมาส์ไปชี้
+			*/
+			.img-checker + img {
+				opacity: 0.5;
+				cursor: pointer;
+			}
+			/*
+			ให้ <img> ที่ตามหลัง element ที่มี class img-checker กลับมาแสดงผลแบบปกติ
+			เมื่อ element ที่มี class img-checker มีสถานะเป็น checked
+			*/
+			.img-checker:checked + img {
+				opacity: 1.0;
+			}
+			.center {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				
+}
