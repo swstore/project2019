@@ -191,8 +191,34 @@
 							$file="./admin/admin.txt";
 							$fp = fopen($file, "r");
 //							if (!$fp) {echo "File Title error";}
-							
-							$file = fgets($fp);
+					//*************************************************************
+					while (!feof($fp)) {
+        				$data = fgets($fp);
+						if (substr($data, 0, 5)=="intro"){
+							$num=explode("=",$data);
+							$intro = $num[1];
+						}
+						if (substr($data, 0, 5)=="title"){
+							$num=explode("=",$data);
+							$title = $num[1]; 
+						}
+						if (substr($data, 0, 7)=="content"){
+							$num=explode("=",$data);
+							$content = $num[1]; 
+						}
+						if (substr($data, 0, 5)=="about"){
+							$num=explode("=",$data);
+							$about = $num[1];
+							$data2 = fgets($fp);
+							while (substr($data2, 0, 1) != "#") {
+								$about = $about."<br>".$data2;
+								$data2 = fgets($fp);
+							}
+						}
+        			}
+
+					//*************************************************************
+/*							$file = fgets($fp);
 							while (substr($file, 0, 1) == "#") {
 								$file = fgets($fp);
 							}
@@ -206,6 +232,7 @@
 								$about = $about.$file."<br>";
 								$file = fgets($fp);
 							}
+*/							
 							//$content = str_replace (array("\r\n", "\n", "\r"), '', $content)
 ?>
 									<h9><?php echo $intro; ?></h9>
@@ -267,7 +294,7 @@
 
 							<div class='section-header' >
 								<h2>
-									I'm a <strong class='color' >Student</strong>
+									<center><strong class='color' >About</strong></center>
 								</h2>
 							</div>
 
@@ -276,7 +303,7 @@
 								<div class='col-md-4' >
 
 									<ul class='info-list' >
-
+<!--
 										<li>
 											<strong>Name:</strong>
 											<span>Bunyawee Dokkum</span>
@@ -302,7 +329,7 @@
 											<span>Nonthaburi</span>
 										</li>
 
-
+-->
 
 									</ul>
 
@@ -311,6 +338,7 @@
 								<div class='col-md-8' >
 
 									<div class='about-text' >
+									
 										<p> <h11><?php echo $about; ?><h11>
 											</p>
 
