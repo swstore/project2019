@@ -191,7 +191,7 @@
 							$file="./admin/admin.txt";
 							$fp = fopen($file, "r");
 //							if (!$fp) {echo "File Title error";}
-					//*************************************************************
+
 					while (!feof($fp)) {
         				$data = fgets($fp);
 						if (substr($data, 0, 5)=="intro"){
@@ -217,22 +217,7 @@
 						}
         			}
 
-					//*************************************************************
-/*							$file = fgets($fp);
-							while (substr($file, 0, 1) == "#") {
-								$file = fgets($fp);
-							}
-							$intro = fgets($fp);
-							$title = fgets($fp);
-							$content = fgets($fp);
-							
-							$about = "";
-							$file = fgets($fp);
-							while (substr($file, 0, 1) != "#") {
-								$about = $about.$file."<br>";
-								$file = fgets($fp);
-							}
-*/							
+						
 							//$content = str_replace (array("\r\n", "\n", "\r"), '', $content)
 ?>
 									<h9><?php echo $intro; ?></h9>
@@ -242,11 +227,7 @@
 									<h11><?php echo $content; ?><h11>
 									<br><br>
 									<div class='intro-btns' >
-<!--
-										<a href='result.php' class='btn-custom section-toggle' data-section='register' >
-											<h5>สรุปผล</h5>
-										</a>
--->
+
 										<?php
 										if ($logonsuccess=="yes") {
 										?>
@@ -255,13 +236,6 @@
 												<input name="button" type="button" id="button" onClick="MM_goToURL('parent','question.php?question=0');return document.MM_returnValue" value="เริ่มทำแบบทดสอบ">
 										</h3>
 										
-	<!--									<a href='result.php' class='btn-custom section-toggle' data-section='questionnair' >
-											<h5>ดูผลการทดสอบ</h5>
-										</a>
-
-										<a href='question.php?question=0' class='btn-custom section-toggle' data-section='questionnair' >
-											<h5>เริ่มทำแบบทดสอบ</h5>
-	-->									</a>
 										<?php
 										}ELSE{
 											$_SESSION['prev']="index.php";?>
