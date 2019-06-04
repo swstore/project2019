@@ -222,7 +222,7 @@
 							while (substr($file, 0, 1) == "#") {
 								$file = fgets($fp);
 							}
-							$intro = fgets($fp,);
+							$intro = fgets($fp);
 							$title = fgets($fp);
 							$content = fgets($fp);
 							
