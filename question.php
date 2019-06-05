@@ -206,7 +206,8 @@ if($_GET["action"]=="home"){
 						<div class='v-align' >
 							<div class='inner' >
 								<div class='intro-text' >
-									<h9><font color=#330066><?php if($question_num != ($_SESSION['numberofquestion']+1)) echo "คำถามข้อที่  ".$question_num; ELSE echo "คำถามหมดแล้ว";?> </font></h9>
+									<h8><font color=#330066><?php if($question_num != ($_SESSION['numberofquestion']+1)) echo "ข้อที่  ".$question_num; ELSE echo "คำถามหมดแล้ว";?> </font></h8>
+									<br><br><br>
 									<h2><font color=#333399>
 									<?php
 										$sql = "SELECT * FROM question WHERE number = $question_num AND questiongroup = $questiongroup";
@@ -216,7 +217,7 @@ if($_GET["action"]=="home"){
 										//echo "<br>old answer = ".$oldanswer;
 									?>
 									</font></h2>
-									<br>
+									
 									<h3>
 									
 									<?php
@@ -234,22 +235,22 @@ if($_GET["action"]=="home"){
 										<center>
 										<label>
 										<input <?php if ($oldanswer == "ไม่ใช่เลย") {echo "checked";}?> type="radio" name="answer" value="ไม่ใช่เลย" class="img-checker">
-										<img src=img/01.jpg>
+										<img src=img/01.jpg width="80%" height="80%" >
 										</label>
 				
 										<label>
 										<input <?php if ($oldanswer == "ไม่แน่ใจ") {echo "checked";}?> type="radio" name="answer" value="ไม่แน่ใจ" class="img-checker">
-										<img src=img/02.jpg>
+										<img src=img/02.jpg width="80%" height="80%" >
 										</label>
 				
 										<label>
 										<input <?php if ($oldanswer == "ค่อนข้างใช่") {echo "checked";}?> type="radio" name="answer" value="ค่อนข้างใช่" class="img-checker">
-										<img src=img/03.jpg>
+										<img src=img/03.jpg width="80%" height="80%" >
 										</label>
 				
 										<label>
 										<input <?php if ($oldanswer == "ใช่ที่สุด") {echo "checked";}?> type="radio" name="answer" value="ใช่ที่สุด" class="img-checker">
-										<img src=img/04.jpg>
+										<img src=img/04.jpg width="80%" height="80%" >
 										</label>
 										</center>
 									<?php 
@@ -257,12 +258,12 @@ if($_GET["action"]=="home"){
 										<center>
 										<label>
 										<input <?php if ($oldanswer == "ใช่") {echo "checked";}?> type="radio" name="answer" value="ใช่" class="img-checker">
-										<img src=img/yes.jpg>
+										<img src=img/yes.jpg width="80%" height="80%" >
 										</label>
 				
 										<label>
 										<input <?php if ($oldanswer == "ไม่ใช่") {echo "checked";}?> type="radio" name="answer" value="ไม่ใช่" class="img-checker">
-										<img src=img/no.jpg>
+										<img src=img/no.jpg width="80%" height="80%" >
 										</label>
 									<?php 
 									}

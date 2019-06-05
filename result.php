@@ -229,7 +229,7 @@ if (($userid != '') && ($logonsuccess =="yes")){
 	if($alldone==0){
 ?>
 								<div class='intro-text' >
-									<font color="#330066"><h1>กรุณาทำให้ครบทุกข้อ</h1></font>
+									<br><br><br><br><br><font color="#330066"><h2>กรุณาทำให้ครบทุกข้อ</h2></font>
 								</div>
 <?php
 	$j=0;

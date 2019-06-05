@@ -222,9 +222,12 @@
 ?>
 									<h9><?php echo $intro; ?></h9>
 									<div class="c"></div>
+									<br>
 									<h10><?php echo $title; ?></h10>
 									<div class="c"></div>
+									<br>
 									<h11><?php echo $content; ?><h11>
+									<br><br>
 									<br><br>
 									<div class='intro-btns' >
 

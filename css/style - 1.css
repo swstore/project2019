@@ -61,7 +61,7 @@ body{
 .info-list > li > strong,
 .btn-custom,
 .menu-items > li > a,
-h1, h2, h3, h4, h5, h6, h8{
+h1, h2, h3, h4, h5, h6{
 	font-family: 'Roboto Mono', sans-serif;
 }
 .color{
@@ -250,7 +250,7 @@ body.border-dark .main-content:after{
 =======================================================*/
 .section-main{
 	/*background-size:cover;*/
-	background-image:url(../img/mobile12.jpg);
+	background-image:url(../img/bg1.jpg);
 	background-size: 100% 100%;
 }
 .section-main:before{
@@ -268,50 +268,6 @@ body.border-dark .main-content:after{
 	padding:20px;
 	text-align:center;
 	font-family: FCLamoonRegular;
-}
-.intro-text > h8{
-	font-size:40px;
-	font-weight:bold;
-}
-.intro-text > h9{
-	margin:0;
-	/*color:#FFF;*/
-	color:#000;
-	/*text-transform:uppercase;*/
-	font-weight:900;
-	letter-spacing:8px;
-	font-size:30px;
-}
-
-.intro-text > h10{
-	margin:0;
-	/*color:#FFF;*/
-	color:#FF7F50;
-	/*text-transform:uppercase;*/
-	font-weight:900;
-	letter-spacing:8px;
-	font-size:54px;
-}
-.intro-text > h11{
-	margin:0;
-	/*color:#FFF;*/
-	color:#333399;
-	/*text-transform:uppercase;*/
-	font-weight:900;
-	letter-spacing:8px;
-	font-size:16px;
-	display:block;
-	margin-left: auto;
-	margin-right: auto;
-	width:280px;
-	word-wrap:break-word;
-	font-family: 'Roboto Mono', sans-serif;
-}
-@media(min-width: 768px) {
-.section-main{
-	/*background-size:cover;*/
-	background-image:url(../img/bg1.jpg);
-	background-size: 100% 100%;
 }
 .intro-text > h9{
 	margin:0;
@@ -345,7 +301,6 @@ body.border-dark .main-content:after{
 	width:700px;
 	word-wrap:break-word;
 	font-family: 'Roboto Mono', sans-serif;
-}
 }
 .intro-text > h1{
 	margin:0;
