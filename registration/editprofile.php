@@ -29,15 +29,16 @@ $_SESSION['prev']="index.php";
 					$username = $resultuser["username"];
 					//print_r($resultuser);
 					
-/*			$username = $resultuser["username"];
+			$username = $resultuser["username"];
 			$surname = $resultuser["surname"];
 			$class = $resultuser["class"];
+			$room = $resultuser["room"];
 			$number = $resultuser["number"];
 			$year = $resultuser["year"];
 			$current = $resultuser["current"];
 			$expect = $resultuser["expect"];
 			$email = $resultuser["email"];
-*/			
+		
 					?>
 <!--					<div align="left">
 					<h5><br>&nbsp&nbsp&nbsp&nbsp<font color="black"><?php echo "ผู้ใช้งาน = ".$username; ?></font></h5>
@@ -103,10 +104,42 @@ $_SESSION['prev']="index.php";
 			<input maxlength="2" type="text" name="number" value="<?php echo $resultuser["number"]; ?>">
 		</div>
 		
-		<div class="input-group">
+<div class="input-group">
 			<label>ปีการศึกษา</label>
-<!--		<input style="width: 60px;" maxlength="4" type="text" name="year" value="<?php echo $resultuser["year"]; ?>"> -->
-			<input maxlength="4" type="text" name="year" value="<?php echo $resultuser["year"]; ?>">
+			<select style="font-size:16px; id="year" name="year">
+				<option <?php if ($resultuser["year"] == '') {echo "selected";}?> value=""></option>
+				<option <?php if ($resultuser["year"] == '2550') {echo "selected";}?> value="2550">2550</option>
+				<option <?php if ($resultuser["year"] == '2551') {echo "selected";}?> value="2551">2551</option>
+				<option <?php if ($resultuser["year"] == '2552') {echo "selected";}?> value="2552">2552</option>
+				<option <?php if ($resultuser["year"] == '2553') {echo "selected";}?> value="2553">2553</option>
+				<option <?php if ($resultuser["year"] == '2554') {echo "selected";}?> value="2554">2554</option>
+				<option <?php if ($resultuser["year"] == '2555') {echo "selected";}?> value="2555">2555</option>
+				<option <?php if ($resultuser["year"] == '2556') {echo "selected";}?> value="2556">2556</option>
+				<option <?php if ($resultuser["year"] == '2557') {echo "selected";}?> value="2557">2557</option>
+				<option <?php if ($resultuser["year"] == '2558') {echo "selected";}?> value="2558">2558</option>
+				<option <?php if ($resultuser["year"] == '2559') {echo "selected";}?> value="2559">2559</option>
+				<option <?php if ($resultuser["year"] == '2560') {echo "selected";}?> value="2560">2560</option>
+				<option <?php if ($resultuser["year"] == '2561') {echo "selected";}?> value="2561">2561</option>
+				<option <?php if ($resultuser["year"] == '2562') {echo "selected";}?> value="2562">2562</option>
+				<option <?php if ($resultuser["year"] == '2563') {echo "selected";}?> value="2563">2563</option>
+				<option <?php if ($resultuser["year"] == '2564') {echo "selected";}?> value="2564">2564</option>
+				<option <?php if ($resultuser["year"] == '2565') {echo "selected";}?> value="2565">2565</option>
+				<option <?php if ($resultuser["year"] == '2566') {echo "selected";}?> value="2566">2566</option>
+				<option <?php if ($resultuser["year"] == '2567') {echo "selected";}?> value="2567">2567</option>
+				<option <?php if ($resultuser["year"] == '2568') {echo "selected";}?> value="2568">2568</option>
+				<option <?php if ($resultuser["year"] == '2569') {echo "selected";}?> value="2569">2569</option>
+				<option <?php if ($resultuser["year"] == '2570') {echo "selected";}?> value="2570">2570</option>
+				<option <?php if ($resultuser["year"] == '2571') {echo "selected";}?> value="2571">2571</option>
+				<option <?php if ($resultuser["year"] == '2572') {echo "selected";}?> value="2572">2572</option>
+				<option <?php if ($resultuser["year"] == '2573') {echo "selected";}?> value="2573">2573</option>
+				<option <?php if ($resultuser["year"] == '2574') {echo "selected";}?> value="2574">2574</option>
+				<option <?php if ($resultuser["year"] == '2575') {echo "selected";}?> value="2575">2575</option>
+				<option <?php if ($resultuser["year"] == '2576') {echo "selected";}?> value="2576">2576</option>
+				<option <?php if ($resultuser["year"] == '2577') {echo "selected";}?> value="2577">2577</option>
+				<option <?php if ($resultuser["year"] == '2578') {echo "selected";}?> value="2578">2578</option>
+				<option <?php if ($resultuser["year"] == '2579') {echo "selected";}?> value="2579">2579</option>
+				<option <?php if ($resultuser["year"] == '2580') {echo "selected";}?> value="2580">2580</option>
+				</select>
 		</div>
 		<div class="input-group">
 			<label>แผนการเรียนปัจจุบัน</label>
