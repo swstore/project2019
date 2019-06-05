@@ -75,20 +75,52 @@ $_SESSION['prev']="index.php";
 		
 		<div class="input-group">
 			<label>ปีการศึกษา</label>
-<!--		<input style="width: 60px;" maxlength="4" type="text" name="year" value="<?php echo $year; ?>"> -->
-			<input maxlength="4" type="text" name="year" value="<?php echo $year; ?>">
+			<select style="font-size:16px; id="year" name="year">
+				<option <?php if ($year == '') {echo "selected";}?> value=""></option>
+				<option <?php if ($year == '2550') {echo "selected";}?> value="2550">2550</option>
+				<option <?php if ($year == '2551') {echo "selected";}?> value="2551">2551</option>
+				<option <?php if ($year == '2552') {echo "selected";}?> value="2552">2552</option>
+				<option <?php if ($year == '2553') {echo "selected";}?> value="2553">2553</option>
+				<option <?php if ($year == '2554') {echo "selected";}?> value="2554">2554</option>
+				<option <?php if ($year == '2555') {echo "selected";}?> value="2555">2555</option>
+				<option <?php if ($year == '2556') {echo "selected";}?> value="2556">2556</option>
+				<option <?php if ($year == '2557') {echo "selected";}?> value="2557">2557</option>
+				<option <?php if ($year == '2558') {echo "selected";}?> value="2558">2558</option>
+				<option <?php if ($year == '2559') {echo "selected";}?> value="2559">2559</option>
+				<option <?php if ($year == '2560') {echo "selected";}?> value="2560">2560</option>
+				<option <?php if ($year == '2561') {echo "selected";}?> value="2561">2561</option>
+				<option <?php if ($year == '2562') {echo "selected";}?> value="2562">2562</option>
+				<option <?php if ($year == '2563') {echo "selected";}?> value="2563">2563</option>
+				<option <?php if ($year == '2564') {echo "selected";}?> value="2564">2564</option>
+				<option <?php if ($year == '2565') {echo "selected";}?> value="2565">2565</option>
+				<option <?php if ($year == '2566') {echo "selected";}?> value="2566">2566</option>
+				<option <?php if ($year == '2567') {echo "selected";}?> value="2567">2567</option>
+				<option <?php if ($year == '2568') {echo "selected";}?> value="2568">2568</option>
+				<option <?php if ($year == '2569') {echo "selected";}?> value="2569">2569</option>
+				<option <?php if ($year == '2570') {echo "selected";}?> value="2570">2570</option>
+				<option <?php if ($year == '2571') {echo "selected";}?> value="2571">2571</option>
+				<option <?php if ($year == '2572') {echo "selected";}?> value="2572">2572</option>
+				<option <?php if ($year == '2573') {echo "selected";}?> value="2573">2573</option>
+				<option <?php if ($year == '2574') {echo "selected";}?> value="2574">2574</option>
+				<option <?php if ($year == '2575') {echo "selected";}?> value="2575">2575</option>
+				<option <?php if ($year == '2576') {echo "selected";}?> value="2576">2576</option>
+				<option <?php if ($year == '2577') {echo "selected";}?> value="2577">2577</option>
+				<option <?php if ($year == '2578') {echo "selected";}?> value="2578">2578</option>
+				<option <?php if ($year == '2579') {echo "selected";}?> value="2579">2579</option>
+				<option <?php if ($year == '2580') {echo "selected";}?> value="2580">2580</option>
+				</select>
 		</div>
 		<div class="input-group">
 			<label>แผนการเรียนปัจจุบัน</label>
 			<select style="font-size:16px; id="current" name="current" >
-				<option <?php if ($resultuser["current"] == '') {echo "selected";}?> value=""></option>
-				<option <?php if ($resultuser["current"] == 'ห้องปกติ') {echo "selected";}?> value="ห้องปกติ">ห้องปกติ</option>
-				<option <?php if ($resultuser["current"] == 'ห้อง Intensive') {echo "selected";}?> value="ห้อง Intensive">ห้อง Intensive</option>
-				<option <?php if ($resultuser["current"] == 'ห้อง Gifted') {echo "selected";}?> value="ห้อง Gifted">ห้อง Gifted</option>
-				<option <?php if ($resultuser["current"] == 'วิทย์-คณิต') {echo "selected";}?> value="วิทย์-คณิต">วิทย์-คณิต</option>
-				<option <?php if ($resultuser["current"] == 'ศิลป์-คำนวน') {echo "selected";}?> value="ศิลป์-คำนวน">ศิลป์-คำนวน</option>
-				<option <?php if ($resultuser["current"] == 'ศิลป์-ภาษา') {echo "selected";}?> value="ศิลป์-ภาษา">ศิลป์-ภาษา</option>
-				<option <?php if ($resultuser["current"] == 'อาชีวะ') {echo "selected";}?> value="อาชีวะ">อาชีวะ</option>
+				<option <?php if ($current == '') {echo "selected";}?> value=""></option>
+				<option <?php if ($current == 'ห้องปกติ') {echo "selected";}?> value="ห้องปกติ">ห้องปกติ</option>
+				<option <?php if ($current == 'ห้อง Intensive') {echo "selected";}?> value="ห้อง Intensive">ห้อง Intensive</option>
+				<option <?php if ($current == 'ห้อง Gifted') {echo "selected";}?> value="ห้อง Gifted">ห้อง Gifted</option>
+				<option <?php if ($current == 'วิทย์-คณิต') {echo "selected";}?> value="วิทย์-คณิต">วิทย์-คณิต</option>
+				<option <?php if ($current == 'ศิลป์-คำนวน') {echo "selected";}?> value="ศิลป์-คำนวน">ศิลป์-คำนวน</option>
+				<option <?php if ($current == 'ศิลป์-ภาษา') {echo "selected";}?> value="ศิลป์-ภาษา">ศิลป์-ภาษา</option>
+				<option <?php if ($current == 'อาชีวะ') {echo "selected";}?> value="อาชีวะ">อาชีวะ</option>
 				</select>
 		</div>
 		<div class="input-group">
