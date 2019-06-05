@@ -272,7 +272,7 @@ if (($userid != '') && ($logonsuccess =="yes")){
 									<center><font color="white"><h2>สรุปผลการทดสอบ</h2></font></center>
 								</div>
 -->
-		<center><font color="blue"><h2>สรุปผลการทดสอบ</h2></font></center>
+		<br><center><font color="blue"><h2>สรุปผล<br>การทดสอบ</h2></font></center>
 <?php
 if($questiongroup==1){
 $sql = "SELECT * FROM answer WHERE (userid = $userid) AND (questiongroup = $questiongroup)";
@@ -474,7 +474,7 @@ $graph->Stroke($fileName);
 ?>
 <br><br>
 <center><img src="<?php echo $fileName; ?>"></center>
-<br><br>
+<br>
 <center><h3>
 <input name="button" type="button" id="button" onClick="MM_goToURL('parent','index.php');return document.MM_returnValue" value="กลับหน้าหลัก">
 </h3></center>
