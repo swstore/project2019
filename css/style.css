@@ -347,6 +347,46 @@ body.border-dark .main-content:after{
 	font-family: 'Roboto Mono', sans-serif;
 }
 }
+@media(min-width: 1920px) {
+.section-main{
+	/*background-size:cover;*/
+	background-image:url(../img/bg1.jpg);
+	background-size: 100% 100%;
+}
+.intro-text > h9{
+	margin:0;
+	/*color:#FFF;*/
+	color:#000;
+	/*text-transform:uppercase;*/
+	font-weight:900;
+	letter-spacing:8px;
+	font-size:112px;
+}
+.intro-text > h10{
+	margin:0;
+	/*color:#FFF;*/
+	color:#FF7F50;
+	/*text-transform:uppercase;*/
+	font-weight:900;
+	letter-spacing:8px;
+	font-size:168px;
+}
+.intro-text > h11{
+	margin:0;
+	/*color:#FFF;*/
+	color:#333399;
+	/*text-transform:uppercase;*/
+	font-weight:900;
+	letter-spacing:8px;
+	font-size:28px;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	width:700px;
+	word-wrap:break-word;
+	font-family: 'Roboto Mono', sans-serif;
+}
+}
 .intro-text > h1{
 	margin:0;
 	/*color:#FFF;*/

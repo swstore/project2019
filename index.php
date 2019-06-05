@@ -67,6 +67,7 @@
 					<span class='l1' ></span>
 					<span class='l2' ></span>
 					<span class='l3' ></span>
+					
 				</span>
 			</a>
 
@@ -227,7 +228,6 @@
 									<div class="c"></div>
 									<br>
 									<h11><?php echo $content; ?><h11>
-									<br><br>
 									<br><br>
 									<div class='intro-btns' >
 
