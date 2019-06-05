@@ -191,21 +191,33 @@
 							$file="./admin/admin.txt";
 							$fp = fopen($file, "r");
 //							if (!$fp) {echo "File Title error";}
-							
-							$file = fgets($fp);
-							while (substr($file, 0, 1) == "#") {
-								$file = fgets($fp);
+
+					while (!feof($fp)) {
+        				$data = fgets($fp);
+						if (substr($data, 0, 5)=="intro"){
+							$num=explode("=",$data);
+							$intro = $num[1];
+						}
+						if (substr($data, 0, 5)=="title"){
+							$num=explode("=",$data);
+							$title = $num[1]; 
+						}
+						if (substr($data, 0, 7)=="content"){
+							$num=explode("=",$data);
+							$content = $num[1]; 
+						}
+						if (substr($data, 0, 5)=="about"){
+							$num=explode("=",$data);
+							$about = $num[1];
+							$data2 = fgets($fp);
+							while (substr($data2, 0, 1) != "#") {
+								$about = $about."<br>".$data2;
+								$data2 = fgets($fp);
 							}
-							$intro = fgets($fp);
-							$title = fgets($fp);
-							$content = fgets($fp);
-							
-							$about = "";
-							$file = fgets($fp);
-							while (substr($file, 0, 1) != "#") {
-								$about = $about.$file."<br>";
-								$file = fgets($fp);
-							}
+						}
+        			}
+
+						
 							//$content = str_replace (array("\r\n", "\n", "\r"), '', $content)
 ?>
 									<h9><?php echo $intro; ?></h9>
@@ -215,11 +227,7 @@
 									<h11><?php echo $content; ?><h11>
 									<br><br>
 									<div class='intro-btns' >
-<!--
-										<a href='result.php' class='btn-custom section-toggle' data-section='register' >
-											<h5>สรุปผล</h5>
-										</a>
--->
+
 										<?php
 										if ($logonsuccess=="yes") {
 										?>
@@ -228,13 +236,6 @@
 												<input name="button" type="button" id="button" onClick="MM_goToURL('parent','question.php?question=0');return document.MM_returnValue" value="เริ่มทำแบบทดสอบ">
 										</h3>
 										
-	<!--									<a href='result.php' class='btn-custom section-toggle' data-section='questionnair' >
-											<h5>ดูผลการทดสอบ</h5>
-										</a>
-
-										<a href='question.php?question=0' class='btn-custom section-toggle' data-section='questionnair' >
-											<h5>เริ่มทำแบบทดสอบ</h5>
-	-->									</a>
 										<?php
 										}ELSE{
 											$_SESSION['prev']="index.php";?>
@@ -267,7 +268,7 @@
 
 							<div class='section-header' >
 								<h2>
-									I'm a <strong class='color' >Student</strong>
+									<center><strong class='color' >About</strong></center>
 								</h2>
 							</div>
 
@@ -276,7 +277,7 @@
 								<div class='col-md-4' >
 
 									<ul class='info-list' >
-
+<!--
 										<li>
 											<strong>Name:</strong>
 											<span>Bunyawee Dokkum</span>
@@ -302,7 +303,7 @@
 											<span>Nonthaburi</span>
 										</li>
 
-
+-->
 
 									</ul>
 
@@ -311,6 +312,7 @@
 								<div class='col-md-8' >
 
 									<div class='about-text' >
+									
 										<p> <h11><?php echo $about; ?><h11>
 											</p>
 

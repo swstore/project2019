@@ -153,6 +153,39 @@
 					$numberofanswer=$_SESSION['numberofanswer'];
 					$timecheck=(int)time()-(int)$logontime;   //18000=5 Hours
 
+					$file="./admin/admin.txt";
+					$fp = fopen($file, "r");
+					//if (!$fp) {echo "File Title error";}
+					while (!feof($fp)) {
+        				$data = fgets($fp);
+						if (substr($data, 0, 6)=="skill1"){
+							$num=explode("=",$data);
+							$skill1 = $num[1];
+							$skill1 = str_replace (array("\r\n", "\n", "\r"), ' ', $skill1);
+						}
+						if (substr($data, 0, 6)=="skill2"){
+							$num=explode("=",$data);
+							$skill2 = $num[1];
+							$skill2 = str_replace (array("\r\n", "\n", "\r"), ' ', $skill2);
+						}
+						if (substr($data, 0, 6)=="skill3"){
+							$num=explode("=",$data);
+							$skill3 = $num[1];
+							$skill3 = str_replace (array("\r\n", "\n", "\r"), ' ', $skill3);
+						}
+						if (substr($data, 0, 6)=="skill4"){
+							$num=explode("=",$data);
+							$skill4 = $num[1];
+							$skill4 = str_replace (array("\r\n", "\n", "\r"), ' ', $skill4);
+						}
+						if (substr($data, 0, 6)=="skill5"){
+							$num=explode("=",$data);
+							$skill5 = $num[1];
+							$skill5 = str_replace (array("\r\n", "\n", "\r"), ' ', $skill5);
+						}
+						
+        			}
+					
 					if (($userid != '') && ($timecheck <= 18000)) {
 						$sql = "SELECT * FROM users WHERE (userid = $userid)";
 						$query = mysqli_query($conn,$sql);
@@ -412,7 +445,8 @@ $graph->title->Set("Skill");
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 //$graph->title->SetFont(FF_Sarabun,FS_NORMAL);
 //$graph->SetTitles(array("คณิต-วิทย์","คณิต-อังกฤษ","อังกฤษ-ภาษาที่2","อังกฤษทั่วไป","สายอาชีพ"));
-$graph->SetTitles(array("Sci-Math","Math-Art","2nd Language","Language-Art","Vocational"));
+//$graph->SetTitles(array("Sci-Math","Math-Art","2nd Language","Language-Art","Vocational"));
+$graph->SetTitles(array("$skill1","$skill2","$skill3","$skill4","$skill5"));
 // Create the first radar plot
 $plot = new RadarPlot(array(30,80,60,40,71,81,47));
 $plot->SetLegend("Goal");
